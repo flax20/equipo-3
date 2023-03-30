@@ -6,4 +6,4 @@ Fecha_Nacimiento = str #DateTime
 Rut = str
 Cargo = []
 
-#Getters y setters
+#Getters y setters.
