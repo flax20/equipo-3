@@ -11,7 +11,10 @@ class Persona:
         self.__domicilio = domicilio
         self.__mascotas = []
         self.__historial = []
-
+        
+        
+    
+dsdfsd
 
 
 
