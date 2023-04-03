@@ -44,7 +44,7 @@ class Usuario:
 
 
 #probando codigo
-#recordar colocar date en las fechas
+#recordar colocar date en las fechas, (año,mes,dia)
 test=Usuario(123,"juan","soto","hombre",date(1999,10,2),12345678)
 test.get_id()
 test.get_nombres()
