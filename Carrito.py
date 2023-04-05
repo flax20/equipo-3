@@ -6,14 +6,15 @@ class Carrito:
         pass
 
 
-#Getters
-def get_Monto(self):
-    return self.__Monto
+    #Getters
+    def get_Monto(self):
+        return self.__Monto 
 
-def get_Ventas(self):
-    return self.__Ventas
+    def get_Ventas(self):
+        return self.__Ventas 
 
-def get_Productos(self):
-    return self.__Productos
-
-#
+    def get_Productos(self):
+         return self.__Productos
+    
+    def get_Producto(self,i):
+         return self.__Productos[i]
