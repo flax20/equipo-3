@@ -6,4 +6,17 @@ class Envio:
         pass
 
 
-#Getters y Setters
+    #Getters y Setters
+    def get_idEnvio(self):
+        return self.__id_envio
+    def get_Fecha_Compra(self):
+        return self.__Fecha_Compra
+    def get_Fecha_llegada(self):
+        return self.__Fecha_Llegada
+
+    def set_idEnvio(self,id_envio):
+        self.__id_envio
+    def set_Fecha_Compra(self,fecha_compra):
+        self.__Fecha_Compra=fecha_compra
+    def set_Fecha_llegada(self,fecha_llegada):
+        self.__Fecha_Llegada=fecha_llegada
