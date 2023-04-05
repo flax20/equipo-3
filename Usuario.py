@@ -36,7 +36,7 @@ class Usuario:
     # Nombre, apellido, genero fecha_nacimiento y rut inesesario ????????
 
     def set_id(self):
-        self.__id = int(input("Ingrese nuevo id: "))
+        self.__Id = int(input("Ingrese nuevo id: "))
 
     def set_cargo(self):
         #Aca añadir, eliminar o modificar cargos
