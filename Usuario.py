@@ -12,25 +12,25 @@ class Usuario:
 
     #GETTERS
     def get_id(self):
-        print (self.__Id)
+        return self.__Id
 
     def get_nombres(self):
-        print (self.__Nombres)
+        return self.__Nombres
 
     def get_apellidos(self):
-        print (self.__Apellidos)
+        return self.__Apellidos
 
     def get_genero(self):
-        print (self.__Genero)
+        return self.__Genero
 
     def get_fecha_nacimiento(self):
-        print (self.__Fecha_Nacimiento)
+        return self.__Fecha_Nacimiento
 
     def get_rut(self):
-        print (self.__Rut)
+        return self.__Rut
 
     def get_cargo(self):
-        print (self.__Cargo) #revisar luego
+        return self.__Cargo #revisar luego
 
     #SETTERS
     # Nombre, apellido, genero fecha_nacimiento y rut inesesario ????????
