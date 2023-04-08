@@ -1,81 +1,114 @@
-from datetime import date
+import csv #Para poder GUARDAR los DATOS
+import random #Para asiganar un ID al AZAR
 
 class Cliente:
-    def __init__(self, id: int, nombres:str, apellidos:str, genero: str, Fecha_Nacimiento:date, email:str, rut: str, telefono: str, domicilio: str):
+    def __init__(self,id:int,nombres:str,apellido:str,genero:str,fecha_nacimiento:str,email:str,rut:str,telefono:str,domicilio:str):
         self.__id = id
-        self.__nombres = nombres
-        self.__apellidos = apellidos
+        self.__nombre = nombres
+        self.__apellido = apellido
         self.__genero = genero
-        self.__Fecha_Nacimiento =  Fecha_Nacimiento #Para el DateTime
+        self.__fecha_nacimiento = fecha_nacimiento
         self.__email = email
         self.__rut = rut
         self.__telefono = telefono
         self.__domicilio = domicilio
-        self.__mascotas = []
-        self.__historial = []
 
+    #Setters
+    def set_id(self):
+        self.__id = random.randint(1000, 9999)
 
+    def set_nombre(self, nombres):
+        self.__nombre = nombres
 
+    def set_apellido(self, apellido):
+        self.__apellido = apellido
 
+    def set_genero(self, genero):
+        self.__genero = genero
 
+    def set_fecha_nacimiento(self, fecha_nacimiento):
+        self.__fecha_nacimiento = fecha_nacimiento
 
+    def set_email(self, email):
+        self.__email = email
 
+    def set_rut(self, rut):
+        self.__rut = rut
 
-    #Getters 
+    def set_telefono(self, telefono):
+        self.__telefono = telefono
 
-    def get_Id(self):
+    def set_domicilio(self, domicilio):
+        self.__domicilio = domicilio
+
+    #Getters
+    def get_id(self):
         return self.__id
 
-    def get_Nombres(self):
-        return self.__nombres
+    def get_nombre(self):
+        return self.__nombre
 
-    def get_Apellidos(self):
-        return self.__apellidos
+    def get_apellido(self):
+        return self.__apellido
 
     def get_genero(self):
         return self.__genero
 
-    def get_FechaNacimiento(self):
-        return self.__Fecha_Nacimiento
+    def get_fecha_nacimiento(self):
+        return self.__fecha_nacimiento
 
-    def get_Mail(self):
+    def get_email(self):
         return self.__email
 
-    def get_Rut(self):
+    def get_rut(self):
         return self.__rut
 
     def get_telefono(self):
         return self.__telefono
 
-    def get_Domicilio(self):
+    def get_domicilio(self):
         return self.__domicilio
 
-    def get_Mascotas(self):
-        return self.__mascotas
 
-    def get_Historial(self):
-        return self.__historial
+# Crea una lista para almacenar los objetos Cliente
+clientes = []
+
+# Pide al usuario que ingrese los datos de los clientes
+for i in range(1):
+    cliente = Cliente(id=int,nombres=str,apellido=str,genero=str,fecha_nacimiento=str,email=str,rut=str,telefono=str,domicilio=str)
+    cliente.set_id()
+    nombre = input('Ingresa tu nombre: ')
+    cliente.set_nombre(nombre)
+    apellido = input('Ingresa tu apellido: ')
+    cliente.set_apellido(apellido)
+    genero = input('Ingresa tu género: ')
+    cliente.set_genero(genero)
+    fecha_nacimiento = input('Ingresa tu fecha de nacimiento (DD/MM/AAAA): ')
+    cliente.set_fecha_nacimiento(fecha_nacimiento)
+    email = input('Ingresa tu correo electrónico: ')
+    cliente.set_email(email)
+    rut = input('Ingresa tu RUT: ')
+    cliente.set_rut(rut)
+    telefono = input('Ingresa tu número de teléfono: ')
+    cliente.set_telefono(telefono)
+    domicilio = input('Ingresa tu domicilio: ')
+    cliente.set_domicilio(domicilio)
     
-    def get_Mascota(self,i):
-         return self.__mascotas[i]
-    
-    def get_Historiales(self,i):        #Crear Variable i?
-        return print(self.__historial[i])
-    
+    # Verifica que el ID no se repita
+    while any(cliente.get_id() == c.get_id() for c in clientes): 
+      cliente.set_id()
 
-            #Setters
+    clientes.append(cliente)
 
-    def set_Mail(self):
-         self.__email = str(input(" Ingrese mail nuevo : "))
+# Abre el archivo CSV en modo de escritura
+with open('clientes.csv', mode='w', newline='') as file:
 
-    def set_Telefono(self):
-         self.__telefono = str(input(" Ingrese telefono nuevo : "))
+  # Crea el objeto writer
+  writer = csv.writer(file)
 
-    def set_Domicilio(self):
-         self.__domicilio = str(input(" Ingrese domicilio nuevo : "))
+  # Escribe los encabezados 
+  writer.writerow(['ID', 'Nombre', 'Apellido', 'Genero', 'Fecha de Nacimiento', 'Correo Electrenico', 'RUT', 'Telefono', 'Domicilio'])
 
-    def set_Mscotas(self,mascotas):
-        self.__mascotas = mascotas          #Pregunta profe ¿Que pasa si quiere modificar una mascotas, si es un arreglo?
-
-    def set_Historial(self,historial):
-        self.__historial = historial        #Tal vez hay que sacarlo
+  # Escribe los datos de los clientes
+  for cliente in clientes:
+      writer.writerow([cliente.get_id(), cliente.get_nombre(), cliente.get_apellido(), cliente.get_genero(), cliente.get_fecha_nacimiento(), cliente.get_email(), cliente.get_rut(), cliente.get_telefono(), cliente.get_domicilio()])
