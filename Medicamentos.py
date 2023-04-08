@@ -7,27 +7,25 @@ class Medicamentos:
         pass
 
     #GETTERS
-    #Mostrar nombre del medicamento
     def get_nombre(self): 
-        print (self.__Nombre_Medicamento)
-    #Mostrar descripcion 
+        return self.__Nombre_Medicamento
+     
     def get_descripcion(self):
-        print (self.__Descripcion)
-    #Mostrar precio
+        return self.__Descripcion
+    
     def get_precio(self):
-        print (self.__Precio)
-    #Mostrar stock
+        return self.__Precio
+    
     def get_stock(self):
-        print (self.__Stock)
+        return self.__Stock
     
     #SETTERS
-    #modificar nombre
     def set_nombre(self):
         self.__Nombre_Medicamento = str(input("Ingrese nuevo nombre: "))
-    #modificar descripcion
+  
     def set_descripcion(self):
         self.__Descripcion = str(input("Ingrese nueva descripcion: "))
-    #modificar precio
+    
     def set_precio(self):
         #try para que se ingrese un int
         try:
