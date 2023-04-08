@@ -76,7 +76,7 @@ clientes = []
 # Pide al usuario que ingrese los datos de los clientes
 for i in range(1):
     cliente = Cliente(id=int,nombres=str,apellido=str,genero=str,fecha_nacimiento=str,email=str,rut=str,telefono=str,domicilio=str)
-    cliente.set_id()
+    cliente.set_id()    #se le setea un numero random, porque llamamos a la funcion set_id()
     nombre = input('Ingresa tu nombre: ')
     cliente.set_nombre(nombre)
     apellido = input('Ingresa tu apellido: ')
@@ -96,19 +96,27 @@ for i in range(1):
     
     # Verifica que el ID no se repita
     while any(cliente.get_id() == c.get_id() for c in clientes): 
-      cliente.set_id()
+      cliente.set_id()  #Cada vez que un ID se repita a otro, entonces, entrara en este ciclo y no saldra hasta que el id setiado no se a = otro
 
     clientes.append(cliente)
 
+#Sirve para crear los encabezados solo cuando se crea el archivo por primera vez
+try:
+    with open ('clientes.csv', mode ='x', newline='') as file:
+        escritor_csv= csv.writer(file)
+        escritor_csv.writerow(["ID , NOMBRE , APELLIDO , GENERO , FECHA NACIEMIENTO , EMAIL, RUT , TELEFONO , DOMICILIO "])
+except FileExistsError:
+        pass
+
 # Abre el archivo CSV en modo de escritura
-with open('clientes.csv', mode='w', newline='') as file:
+with open('clientes.csv', mode='a', newline='') as file:
 
   # Crea el objeto writer
   writer = csv.writer(file)
-
+   
   # Escribe los encabezados 
-  writer.writerow(['ID', 'Nombre', 'Apellido', 'Genero', 'Fecha de Nacimiento', 'Correo Electrenico', 'RUT', 'Telefono', 'Domicilio'])
-
+  #writer.writerow(['ID', 'Nombre', 'Apellido', 'Genero', 'Fecha de Nacimiento', 'Correo Electrenico', 'RUT', 'Telefono', 'Domicilio'])
+    
   # Escribe los datos de los clientes
   for cliente in clientes:
       writer.writerow([cliente.get_id(), cliente.get_nombre(), cliente.get_apellido(), cliente.get_genero(), cliente.get_fecha_nacimiento(), cliente.get_email(), cliente.get_rut(), cliente.get_telefono(), cliente.get_domicilio()])
