@@ -12,6 +12,7 @@ class Cliente:
         self.__rut = rut
         self.__telefono = telefono
         self.__domicilio = domicilio
+        #Faltan los atributos PRIVADOS mascotas(arreglo) y Historial(arreglo) con sus respectivos get y set
 
     #Setters
     def set_id(self):
